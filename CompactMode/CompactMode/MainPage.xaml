@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             xmlns:customControls="clr-namespace:CompactMode.CustomControls;assembly=CompactMode"
+             mc:Ignorable="d"
+             x:Class="CompactMode.MainPage"
+             BackgroundColor="#263A43">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS"
+                Value="0,25,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              x:Name="DashboardBarGrid"
+              RowSpacing="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="90" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0"
+                         Margin="10,10,10,0"
+                         Orientation="Horizontal"
+                         VerticalOptions="CenterAndExpand">
+
+                <Image HeightRequest="32"
+                       Source="menu.png"
+                       HorizontalOptions="Start" />
+
+                <Image HeightRequest="32"
+                       Source="home.png"
+                       HorizontalOptions="EndAndExpand" />
+
+            </StackLayout>
+
+            <Grid Grid.Row="1"
+                  HorizontalOptions="CenterAndExpand">
+
+                <Image x:Name="MainImage"
+                       HeightRequest="90"
+                       Source="sea.png" />
+
+            </Grid>
+
+            <StackLayout Grid.Row="2"
+                         Margin="10,0,10,0"
+                         Orientation="Horizontal"
+                         VerticalOptions="CenterAndExpand">
+
+                <Label HorizontalOptions="Start"
+                       FontSize="14"
+                       TextColor="White"
+                       Text="Welcome" />
+
+                <Label HorizontalOptions="EndAndExpand"
+                       FontSize="14"
+                       TextColor="White"
+                       Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}" />
+
+            </StackLayout>
+
+        </Grid>
+
+        <customControls:CustomScrollView Grid.Row="1"
+                                         BackgroundColor="White"
+                                         Orientation="Vertical"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         Margin="0,0,0,10"
+                                         Scrolled="ScrollView_OnScrolled">
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+
+                <customControls:CustomGradientLayout Grid.Row="0"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#FDDF7A,#FCFB79" />
+
+                <customControls:CustomGradientLayout Grid.Row="1"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#FAB17A,#F8CC6B" />
+
+                <customControls:CustomGradientLayout Grid.Row="2"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#E00007,#E27A86" />
+
+                <customControls:CustomGradientLayout Grid.Row="3"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#B13FDC,#D594E6" />
+
+                <customControls:CustomGradientLayout Grid.Row="4"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#4A93E2,#6AC9E1" />
+
+                <customControls:CustomGradientLayout Grid.Row="5"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#38BAB0,#3CF2E6" />
+
+                <customControls:CustomGradientLayout Grid.Row="6"
+                                                     Orientation="Horizontal"
+                                                     Margin="5"
+                                                     ColorsList="#728291,#C0C0C0" />
+
+
+            </Grid>
+
+        </customControls:CustomScrollView>
+
+    </Grid>
+</ContentPage>
